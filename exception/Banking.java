@@ -19,7 +19,7 @@ public class Banking {
 		if (password.equals(oldPassword)) {
 			password = newPassword;
 		} else{
-			throw new BankingException("비밀번호 변경 오류 [비밀번호 불일치]");
+			throw new BankingException("비밀번호 변경 오류 [비밀번호 불일치]", "ERR01");
 		}
 	}
 		
@@ -28,22 +28,22 @@ public class Banking {
 			// 계좌 사용못하게 하기.
 			lock = true;
 		} else {
-			throw new BankingException("계좌 해지 오류 [ 비밀번호 불일치 ]");
+			throw new BankingException("계좌 해지 오류 [ 비밀번호 불일치 ]","ERR01");
 		}
 	}
-		
+																// throws 를 상속받은것만 가능하다,
 	public int withdraw (String password, int amount) throws BankingException {
 		int withdrawAmount = 0;
 		
 		// 오동작이 발생되는 경우를 미리 생각하여 if문을 통해서 먼저 정의해준다.
 		if (lock) {
-			throw new BankingException("출금 중 오류 [해지된 계좌입니다.]");
+			throw new BankingException("출금 중 오류 [해지된 계좌입니다.]","ERR02");
 		}
 		if (!this.password.equals(password)) {
-			throw new BankingException("출금 중 오류 [비밀번호 불일치]");
+			throw new BankingException("출금 중 오류 [비밀번호 불일치]","ERR01");
 		}
 		if ( balance < amount) {
-			throw new BankingException("출금 중 오류 [잔액 부족]");
+			throw new BankingException("출금 중 오류 [잔액 부족]","ERR03");
 		}
 		
 		balance -= amount;

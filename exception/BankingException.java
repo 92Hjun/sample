@@ -1,12 +1,20 @@
 public class BankingException extends Exception {
 	
-	public BankingException() {}
+	private String errorCode;
 
+	public BankingException() {}
+	
 	public BankingException(String message) {
 		super(message);
 	}
+	public BankingException(String message, String errorCode) {
+		super(message);
+		this.errorCode = errorCode;
+	}
 	
-
+	public String getErrorCode () {
+		return errorCode;
+	}
 
 	/*
 		public class Exception extends Throwable{
