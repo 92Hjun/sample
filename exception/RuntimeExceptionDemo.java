@@ -10,9 +10,12 @@ public class RuntimeExceptionDemo {
 		names[1] = "김유신";
 
 		for (String name : names) {
+			/*
 			if (name != null) {
 				System.out.println(name + ", " + name.length());	
 			}
+			*/
+			System.out.println(name == null ? "없음" : name);
 		}
 	}
 }
