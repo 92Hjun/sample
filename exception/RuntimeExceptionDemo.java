@@ -1,21 +1,64 @@
 public class RuntimeExceptionDemo {
 	public static void main (String[] args) {
 		// NullPointerException
-		//		ÂüÁ¶º¯¼ö¿¡ °´Ã¼ÀÇ ÁÖ¼Ò°© ´ë½Å nullÀÌ ÀúÀåµÇ¾î ÀÖ´Â »óÅÂ¿¡¼­ ¼Ó¼ºÀÌ³ª ±â´ÉÀ» »ç¿ëÇÑ °æ¿ì ¹ß»ıÇÑ´Ù.
+		//		ì°¸ì¡°ë³€ìˆ˜ì— ê°ì²´ì˜ ì£¼ì†Œê°‘ ëŒ€ì‹  nullì´ ì €ì¥ë˜ì–´ ìˆëŠ” ìƒíƒœì—ì„œ ì†ì„±ì´ë‚˜ ê¸°ëŠ¥ì„ ì‚¬ìš©í•œ ê²½ìš° ë°œìƒí•œë‹¤.
 		String str = "abc";
 		System.out.println(str.length());
-
+		
 		String[] names = new String[3];
-		names[0] = "È«±æµ¿";
-		names[1] = "±èÀ¯½Å";
-
+		names[0] = "í™ê¸¸ë™";
+		names[1] = "ê¹€ìœ ì‹ ";
+		
 		for (String name : names) {
 			/*
 			if (name != null) {
 				System.out.println(name + ", " + name.length());	
 			}
 			*/
-			System.out.println(name == null ? "¾øÀ½" : name);
+			System.out.println(name == null ? "ì—†ìŒ" : name);
+		}
+		// IndexOutofBoundException 
+		// ë°°ì—´ì´ë‚˜ Stringì—ì„œ ì¸ë±ìŠ¤ ë²”ìœ„ë¥¼ ë²—ì–´ë‚œ ê°’ì„ ì‚¬ìš©í–ˆì„ ë•Œ ë°œìƒí•œë‹¤.
+		String str2 = "abcddddddddd";
+		if (str2.length() > 30) {
+			System.out.println( str2.substring(1,30) + "...");
+		} else {
+			System.out.println(str2);
+		}
+	
+		/*
+		//ArithmeticException
+		//ìˆ«ìë¥¼ 0ìœ¼ë¡œ ë‚˜ëˆŒë–„ ë°œìƒí•œë‹¤.
+		System.out.println(23/0);
+		*/
+
+		// ClassCastException
+		// í´ë˜ìŠ¤ íƒ€ì… í˜•ë³€í™˜ ê³¼ì •ì—ì„œ ì˜¤ë¥˜ê°€ ìˆëŠ” ê²½ìš° ë°œìƒí•œë‹¤.
+		Phone p1 = new SmartPhone();
+		FeaturePhone p2 = (FeaturePhone)p1;
+
+		/*
+			Exception in thread "main" java.lang.ClassCastException: 
+			RuntimeExceptionDemo$SmartPhone cannot be cast to 
+			RuntimeExceptionDemo$FeaturePhone
+			at RuntimeExceptionDemo.main(RuntimeExceptionDemo.java:38)
+		*/
+		
+	}
+
+	public static class Phone{
+	
+	}
+
+	public static class SmartPhone extends Phone {
+		public void interner() {
+			System.out.println("ì¸í„°ë„·");
+		}
+	}
+	
+	public static class FeaturePhone extends Phone {
+		public void flip() {
+			System.out.print("ì ‘ê³ í´ê¸°");
 		}
 	}
 }
