@@ -1,0 +1,13 @@
+package pro1;
+
+public class Printer {
+	
+	public void print(String data){
+		System.out.println("Èæ¹é ÀÎ¼â");
+	}
+	
+	public void feed() {
+		System.out.println("Á¾ÀÌ °ø±Ş");
+	}
+
+}
