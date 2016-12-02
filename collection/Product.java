@@ -1,4 +1,4 @@
-public class Product {
+public class Product implements Comparable<Product>{
 	private int no;
 	private String name;
 
@@ -54,5 +54,10 @@ public class Product {
 			return false;
 		}
 		return true;
+	}
+	
+	// 내 상품번호와 다른 상품의 상품번호를 비교하는 코드
+	public int compareTo(Product other) {
+		return no - other.no;
 	}
 }
