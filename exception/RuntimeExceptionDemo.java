@@ -1,13 +1,13 @@
 public class RuntimeExceptionDemo {
 	public static void main (String[] args) {
 		// NullPointerException
-		//		ì°¸ì¡°ë³€ìˆ˜ì— ê°ì²´ì˜ ì£¼ì†Œê°‘ ëŒ€ì‹  nullì´ ì €ì¥ë˜ì–´ ìˆëŠ” ìƒíƒœì—ì„œ ì†ì„±ì´ë‚˜ ê¸°ëŠ¥ì„ ì‚¬ìš©í•œ ê²½ìš° ë°œìƒí•œë‹¤.
+		//		ÂüÁ¶º¯¼ö¿¡ °´Ã¼ÀÇ ÁÖ¼Ò°© ´ë½Å nullÀÌ ÀúÀåµÇ¾î ÀÖ´Â »óÅÂ¿¡¼­ ¼Ó¼ºÀÌ³ª ±â´ÉÀ» »ç¿ëÇÑ °æ¿ì ¹ß»ıÇÑ´Ù.
 		String str = "abc";
 		System.out.println(str.length());
 		
 		String[] names = new String[3];
-		names[0] = "í™ê¸¸ë™";
-		names[1] = "ê¹€ìœ ì‹ ";
+		names[0] = "È«±æµ¿";
+		names[1] = "±èÀ¯½Å";
 		
 		for (String name : names) {
 			/*
@@ -15,10 +15,10 @@ public class RuntimeExceptionDemo {
 				System.out.println(name + ", " + name.length());	
 			}
 			*/
-			System.out.println(name == null ? "ì—†ìŒ" : name);
+			System.out.println(name == null ? "¾øÀ½" : name);
 		}
 		// IndexOutofBoundException 
-		// ë°°ì—´ì´ë‚˜ Stringì—ì„œ ì¸ë±ìŠ¤ ë²”ìœ„ë¥¼ ë²—ì–´ë‚œ ê°’ì„ ì‚¬ìš©í–ˆì„ ë•Œ ë°œìƒí•œë‹¤.
+		// ¹è¿­ÀÌ³ª String¿¡¼­ ÀÎµ¦½º ¹üÀ§¸¦ ¹ş¾î³­ °ªÀ» »ç¿ëÇßÀ» ¶§ ¹ß»ıÇÑ´Ù.
 		String str2 = "abcddddddddd";
 		if (str2.length() > 30) {
 			System.out.println( str2.substring(1,30) + "...");
@@ -28,12 +28,12 @@ public class RuntimeExceptionDemo {
 	
 		/*
 		//ArithmeticException
-		//ìˆ«ìë¥¼ 0ìœ¼ë¡œ ë‚˜ëˆŒë–„ ë°œìƒí•œë‹¤.
+		//¼ıÀÚ¸¦ 0À¸·Î ³ª´­‹š ¹ß»ıÇÑ´Ù.
 		System.out.println(23/0);
 		*/
 
 		// ClassCastException
-		// í´ë˜ìŠ¤ íƒ€ì… í˜•ë³€í™˜ ê³¼ì •ì—ì„œ ì˜¤ë¥˜ê°€ ìˆëŠ” ê²½ìš° ë°œìƒí•œë‹¤.
+		// Å¬·¡½º Å¸ÀÔ Çüº¯È¯ °úÁ¤¿¡¼­ ¿À·ù°¡ ÀÖ´Â °æ¿ì ¹ß»ıÇÑ´Ù.
 		Phone p1 = new SmartPhone();
 		FeaturePhone p2 = (FeaturePhone)p1;
 
@@ -52,13 +52,13 @@ public class RuntimeExceptionDemo {
 
 	public static class SmartPhone extends Phone {
 		public void interner() {
-			System.out.println("ì¸í„°ë„·");
+			System.out.println("ÀÎÅÍ³İ");
 		}
 	}
 	
 	public static class FeaturePhone extends Phone {
 		public void flip() {
-			System.out.print("ì ‘ê³ í´ê¸°");
+			System.out.print("Á¢°íÆì±â");
 		}
 	}
 }
